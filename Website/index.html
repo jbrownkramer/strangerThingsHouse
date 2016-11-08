@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title>Stranger Things House</title> 
+		<style>
+			body
+			{
+				background-color:black;
+			}
+			
+			#titleGraphic
+			{
+				height:50%
+			}
+			
+			.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+			
+		</style>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script>
+			$(document).ready(
+				function()
+				{
+					$("#submit").click(function(){doMessage($("#message").val())});
+					//$( "#dialog" ).dialog();
+				});
+		
+			function doMessage(message)
+			{
+				$.post("newMessage.php", { Body : message},function(data){doFeedBack($(data).text())});
+				//$( "#dialog" ).dialog();
+				//alert("It's kind of bright out now.  It looks better at night.");
+			}
+			
+			function doFeedBack(feedback)
+			{
+				$("#feedback").text(feedback);
+				$("#feedback").fadeIn("fast",function(){});
+				$("#feedback").fadeOut(5000,function(){});
+			}
+		</script>
+		
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-86556936-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+		
+		
+	</head>
+	<body>
+	
+		<div class="centered" style="color:red; text-align:center;">
+			<img src="wall.JPG" style="height : 75%;"><br>
+			<div style="font-family: Sans-Serif;color:white;margin-top:1em; margin-bottom:1em">Thanks Everyone For A Terrific Halloween 2016!  Check Back Soon For DIY Instructions!</div>
+		</div>
+		<center>
+		
+		<!--<img src="logo3.png" id="titleGraphic">-->
+		<!--<iframe style="height : calc(100% - 6em);" width="100%" src="https://www.youtube.com/embed/kpXjRn2UAno" frameborder="0" allowfullscreen></iframe>-->
+		<!--<iframe src="http://www.ustream.tv/embed/22750631?html5ui" style="border: 0 none transparent; height : calc(100% - 6em);"  webkitallowfullscreen allowfullscreen frameborder="no" width="100%"></iframe>-->
+		<div style="display:none">
+			<iframe style="height : calc(100% - 8em);" width="100%" src="https://youtube.com/embed/live_stream?channel=UCoQvnh8H1snL1pQcW5NfILQ&autoplay=1"; frameborder="0" allowfullscreen></iframe>
+			<div style="font-family: Sans-Serif;color:white;margin-top:1em; margin-bottom:1em">You can control this Halloween decoration on my front porch!  There is about a 15 second video delay.  Taking it down Saturday!</div>
+			<input id="message" type="text" style="width:25%" name="Body">
+			<button id="submit">Speak From The Upside Down</button>
+			<div id="feedback" style="color:red;margin-top:1em"></div>
+		</div>
+		</center>
+		
+		<div id="dialog" title="It's Bright Out!" style="display:none">
+			<p>Your message will go through, but you will be able to see it better at night.</p>
+		</div>
+	</body>
+</html>
