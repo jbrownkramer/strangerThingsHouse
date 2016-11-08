@@ -8,3 +8,4 @@ Stranger Things House was a Halloween decoration that I created for Halloween 20
 * Arduino code for controlling the lights with an ESP8266
 * PHP code for accepting, filtering, and queueing messages
 * HTML for the website
+ * Note, Website/en is a list of naughty words!
